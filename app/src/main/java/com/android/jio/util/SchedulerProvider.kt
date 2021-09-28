@@ -1,4 +1,4 @@
-package com.dunzo.flickrapi.util
+package com.android.jio.util
 
 import io.reactivex.Scheduler
 import io.reactivex.android.schedulers.AndroidSchedulers

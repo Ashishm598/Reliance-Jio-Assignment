@@ -1,4 +1,4 @@
-package com.dunzo.flickrapi.util
+package com.android.jio.util
 
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView

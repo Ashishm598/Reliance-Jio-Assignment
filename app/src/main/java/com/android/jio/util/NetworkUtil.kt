@@ -1,4 +1,4 @@
-package com.dunzo.flickrapi.util
+package com.android.jio.util
 
 import android.content.Context
 import android.net.ConnectivityManager

@@ -1,0 +1,2 @@
+rootProject.name = "Reliance-Jio-Assignment"
+include ':app'

@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.android.jio.model.MainResponse
 import com.android.jio.repository.MainRepository
+import com.android.jio.util.Constants
 import com.android.jio.util.SchedulerProvider
 import com.android.jio.util.extension.log
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -22,19 +23,14 @@ class MainViewModel @Inject constructor(
     private val _data = MutableLiveData<MainResponse>()
     val data = _data
 
-    companion object {
-        private const val DEFAULT_CURRENT_PAGE = 1
-        private const val DEFAULT_PER_PAGE_RESULT = 10
-    }
-
     override fun onCleared() {
         super.onCleared()
         compositeDisposable.clear()
     }
 
     fun getUserData(
-        pageNo: Int = DEFAULT_CURRENT_PAGE,
-        perPageResult: Int = DEFAULT_PER_PAGE_RESULT
+        pageNo: Int = Constants.DEFAULT_CURRENT_PAGE,
+        perPageResult: Int = Constants.DEFAULT_PER_PAGE_RESULT
     ) {
         mainRepository.getUserList(pageNo, perPageResult)
             .subscribeOn(schedulerProvider.io())

@@ -5,15 +5,15 @@ import io.reactivex.Completable
 import io.reactivex.Single
 
 @Dao
-abstract class MainDao {
+interface MainDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    abstract fun saveData(responseEntity: ResponseEntity): Completable
+    fun saveData(responseEntity: ResponseEntity): Completable
 
-    @Query("SELECT * FROM response_table")
-    abstract fun getData(): Single<ResponseEntity>
+    @Query("SELECT * FROM response_table LIMIT 1")
+    fun getData(): Single<ResponseEntity>
 
     @Query("DELETE FROM response_table")
-    abstract fun clearData(): Completable
+    fun clearData(): Completable
 
 }

@@ -13,7 +13,7 @@ class MainRepositoryImpl @Inject constructor(private val mainDataStoreFactory: M
         if (pageNo == Constants.DEFAULT_CURRENT_PAGE) {
             return mainDataStoreFactory.getLocalDataStore().getUserList(pageNo, perPageResult)
                 .flatMap { localResponse ->
-                    if (localResponse.data.isEmpty()) {
+                    if (localResponse.data.isNullOrEmpty()) {
                         mainDataStoreFactory.getRemoteDataStore().getUserList(pageNo, perPageResult)
                             .flatMap { remoteResponse ->
                                 mainDataStoreFactory.getLocalDataStore()

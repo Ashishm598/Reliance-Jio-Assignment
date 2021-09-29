@@ -27,8 +27,7 @@ class AppModule {
 
     @Provides
     fun provideMainDB(@ApplicationContext context: Context): MainDB {
-        return Room.databaseBuilder(context, MainDB::class.java, MainDB.DB_NAME)
-            .addTypeConverter(DataConverter::class.java).build()
+        return Room.databaseBuilder(context, MainDB::class.java, MainDB.DB_NAME).build()
     }
 
     @Provides

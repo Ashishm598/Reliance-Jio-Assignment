@@ -2,14 +2,13 @@ package com.android.jio.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.jio.adapter.MainAdapter
 import com.android.jio.databinding.ActivityMainBinding
 import com.android.jio.presenter.MainViewModel
 import com.android.jio.util.OnScrollListener
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -31,8 +30,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        mainViewModel = ViewModelProvider(this).get(MainViewModel::class.java)
         setupObserver()
-        mainViewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
         setupRecyclerView()
         mainViewModel.getUserData()
     }

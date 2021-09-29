@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.android.jio.databinding.ItemUserListBinding
 import com.android.jio.model.Data
 import com.android.jio.model.MainResponse
+import com.android.jio.util.extension.loadImage
 
 class MainAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -56,7 +57,12 @@ class MainAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(currentData: Data) {
-
+            binding.apply {
+                tvEmail.text = currentData.email
+                tvFirstName.text = currentData.first_name
+                tvLastName.text = currentData.last_name
+                imageView.loadImage(currentData.avatar)
+            }
         }
 
     }

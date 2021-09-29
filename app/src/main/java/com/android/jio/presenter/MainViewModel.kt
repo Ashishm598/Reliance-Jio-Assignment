@@ -42,6 +42,7 @@ class MainViewModel @Inject constructor(
 
                 override fun onSuccess(reponse: MainResponse) {
                     _data.value = reponse
+                    reponse.log()
                 }
 
                 override fun onError(e: Throwable) {
